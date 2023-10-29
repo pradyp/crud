@@ -13,6 +13,7 @@ export class UsersListComponent implements OnInit {
   // @Input() users!: any[];
   users: Users[] = [];
   userListForm!: FormGroup;
+  showForm = true;
   // userFormBuild: any;
   constructor(private router: Router, private service: UserService,  private userFormBuild: FormBuilder,){
     this.userListForm = this.userFormBuild.group({
@@ -41,16 +42,28 @@ export class UsersListComponent implements OnInit {
   }
 
   EditUserById(id: any) {
-    // this.service.editUserById(id).subscribe((data) => {
-    //   const editedUser = data;
-    //   console.log(id);
-    //   this.userListForm.patchValue({
-    //     Name: data.Name,
-    //     Email: data.Email,
-    //     Mobile: data.Mobile,
-    //     Age: data.Age,
-    //   });
-    // });
-    this.router.navigate(['/Users-edit']);
+    this.service.editUserById(id).subscribe((data) => {
+      const editedUser = data;
+      console.log(id);
+     
+      this.userListForm.patchValue({
+        Name: data.Name,
+        Email: data.Email,
+        Mobile: data.Mobile,
+        Age: data.Age,
+      });
+    });
+    this.showForm = false;
+    // this.router.navigate(['/Users-edit']);
+  }
+
+  UpdateForm() {
+    console.log(this.userListForm.value);
+    this.service.addUpdateUser(this.userListForm.value).subscribe((data) => {
+      console.log(data);
+      this.getAllUsers();
+
+    });
+    // this.router.navigate(['/Users-List']);
   }
 }

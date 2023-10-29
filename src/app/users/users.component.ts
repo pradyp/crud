@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { Users } from 'src/user';
@@ -10,7 +10,7 @@ import { Users } from 'src/user';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  userForm!: FormGroup;
+  userCreateForm!: FormGroup;
   users!: Users[];
   // users: any;
   constructor(
@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
     private service: UserService,
     private router: Router
   ) {
-    this.userForm = this.userFormBuild.group({
+    this.userCreateForm = this.userFormBuild.group({
       Name: [''],
       Email: [''],
       Mobile: [''],
@@ -31,8 +31,8 @@ export class UsersComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.userForm.value);
-    this.service.addUpdateUser(this.userForm.value).subscribe((data) => {
+    console.log(this.userCreateForm.value);
+    this.service.addUpdateUser(this.userCreateForm.value).subscribe((data) => {
       console.log(data);
       this.getAllUsers();
 
@@ -47,21 +47,4 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  // DeleteUser(i: any) {
-  //   this.service.deleteUser(i).subscribe((data) => {
-  //     this.getAllUsers();
-  //   });
-  // }
-
-  // EditUserById(id: any) {
-  //   this.service.editUserById(id).subscribe((data) => {
-  //     console.log(id);
-  //     this.userForm.patchValue({
-  //       Name: data.Name,
-  //       Email: data.Email,
-  //       Mobile: data.Mobile,
-  //       Age: data.Age,
-  //     });
-  //   });
-  // }
 }

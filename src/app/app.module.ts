@@ -8,14 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersListComponent } from './users-list/users-list.component';
-import { EditUsersComponent } from './edit-users/edit-users.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UsersListComponent,
-    EditUsersComponent
   ],
   imports: [
     BrowserModule,

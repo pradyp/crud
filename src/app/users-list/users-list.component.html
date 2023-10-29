@@ -20,3 +20,40 @@
     </tr>
   </table>
 </div>
+
+<!-- Below Form will be shown only if user clicks on the edit button. -->
+
+<div>
+  <form [formGroup]="userListForm" (ngSubmit)="UpdateForm()" *ngIf="!showForm">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Name" formControlName="Name" />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="email"
+        placeholder="Country"
+        formControlName="Email"
+      />
+    </div>
+    <div>
+      <label for="mobile">Mobile</label>
+      <input
+        type="text"
+        id="mobile"
+        placeholder="Zip"
+        formControlName="Mobile"
+      />
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <input type="text" id="age" placeholder="Zip" formControlName="Age" />
+    </div>
+    <div>
+      <button type="submit">Update Users</button>
+      <button type="button">Reset</button>
+    </div>
+  </form>
+</div>
