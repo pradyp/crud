@@ -1,0 +1,22 @@
+<p>users-list works!</p>
+<div>
+  <table id="employees">
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Age</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let item of users; let i = index">
+      <td>{{ item.id }}</td>
+      <td>{{ item.Name }}</td>
+      <td>{{ item.Email }}</td>
+      <td>{{ item.Mobile }}</td>
+      <td>{{ item.Age }}</td>
+      <td><button type="button" (click)="DeleteUser(item.id)">Delete</button>
+    <button type="button" (click)="EditUserById(item.id)">Edit</button></td>
+    </tr>
+  </table>
+</div>

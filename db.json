@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "Users": [
+    {
+      "Name": "justin",
+      "Email": "india",
+      "Mobile": "55677889",
+      "Age": "sasfasfasf",
+      "id": 12
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Mobile": "",
+      "Age": "",
+      "id": 13
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
