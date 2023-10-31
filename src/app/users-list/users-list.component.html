@@ -15,8 +15,8 @@
       <td>{{ item.Email }}</td>
       <td>{{ item.Mobile }}</td>
       <td>{{ item.Age }}</td>
-      <td><button type="button" (click)="DeleteUser(item.id)">Delete</button>
-    <button type="button" (click)="EditUserById(item.id)">Edit</button></td>
+      <td><button type="button" class="btn btn-success" (click)="DeleteUser(item.id)">Delete</button>
+    <button type="button" class="btn btn-secondary" (click)="EditUserById(item.id)">Edit</button></td>
     </tr>
   </table>
 </div>
@@ -52,8 +52,10 @@
       <input type="text" id="age" placeholder="Zip" formControlName="Age" />
     </div>
     <div>
-      <button type="submit">Update Users</button>
-      <button type="button">Reset</button>
+      <button class="btn btn-success" type="submit">Update Users</button>
+      <button class="btn btn-success" type="button">Reset</button>
     </div>
   </form>
 </div>
+
+

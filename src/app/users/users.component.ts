@@ -46,5 +46,4 @@ export class UsersComponent implements OnInit {
       this.users = data;
     });
   }
-
 }
